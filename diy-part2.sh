@@ -10,24 +10,11 @@
 # Description: OpenWrt DIY script part 2 (After Update feeds)
 #
 
-# 清理旧包
+# Modify default IP
+sed -i 's/192.168.1.1/192.168.81.1/g' package/base-files/files/bin/config_generate
+
 rm -rf feeds/luci/themes/luci-theme-argon
-rm -rf feeds/luci/themes/luci-theme-argon-mod
-rm -rf feeds/luci/applications/luci-app-serverchan
-
-# 替换watchcat
-rm -rf feeds/packages/utils/watchcat
-svn co https://github.com/openwrt/packages/trunk/utils/watchcat feeds/packages/utils/watchcat
-
-# 修改默认主题
-sed -i 's/luci-theme-bootstrap/luci-theme-argon/g' feeds/luci/collections/luci/Makefile
-
-# 添加自定义源
-echo 'src/gz openwrt_kiddin9 https://op.supes.top/packages/x86_64' >> package/system/opkg/files/customfeeds.conf
-
-# 修改网络设置
-sed -i 's/192.168.1.1/192.168.123.1/g' package/base-files/files/bin/config_generate
-sed -i "13i\\uci set network.wan.proto='pppoe'\nuci set network.wan.username='test'\nuci set network.wan.password='123456'\nuci set network.wan.ifname='eth0'\nuci set network.lan.ipaddr='192.168.123.1'\nuci set network.lan.proto='static'\nuci set network.lan.type='bridge'\nuci set network.lan.ifname='eth1 eth2 eth3'\nuci commit network\n" package/lean/default-settings/files/zzz-default-settings
+git clone -b 18.06 https://github.com/jerrykuku/luci-theme-argon.git feeds/luci/themes/luci-theme-argon
 
 # x86 型号只显示 CPU 型号
 sed -i 's/${g}.*/${a}${b}${c}${d}${e}${f}${hydrid}/g' package/lean/autocore/files/x86/autocore
