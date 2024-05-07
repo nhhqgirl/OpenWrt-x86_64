@@ -10,5 +10,5 @@
 # Description: OpenWrt DIY script part 1 (Before Update feeds)
 #
 cat >> feeds.conf.default <<EOF
-src-git small8 https://github.com/kenzok8/openwrt-packages
+src-git small8 https://github.com/kenzok8/small-package
 EOF
