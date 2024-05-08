@@ -10,5 +10,6 @@
 # Description: OpenWrt DIY script part 1 (Before Update feeds)
 #
 cat >> feeds.conf.default <<EOF
-src-git roacn https://github.com/roacn/openwrt-packages
+src-git kenzo https://github.com/kenzok8/openwrt-packages
+src-git small https://github.com/kenzok8/small
 EOF
