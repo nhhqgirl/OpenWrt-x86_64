@@ -13,10 +13,10 @@
 rm -rf feeds/smpackage/{base-files,dnsmasq,firewall*,fullconenat,libnftnl,nftables,ppp,opkg,ucl,upx,vsftpd*,miniupnpd-iptables,wireless-regdb}
 
 # Modify default IP
-# sed -i 's/192.168.1.1/192.168.81.1/g' package/base-files/files/bin/config_generate
+sed -i 's/192.168.1.1/192.168.81.1/g' package/base-files/files/bin/config_generate
 
 # rm -rf feeds/luci/themes/luci-theme-argon
-# git clone -b 18.06 https://github.com/jerrykuku/luci-theme-argon.git feeds/luci/themes/luci-theme-argon
+git clone -b https://github.com/haiibo/openwrt-packages/tree/master/luci-theme-argon.git feeds/luci/themes/luci-theme-argon
 
 # x86 型号只显示 CPU 型号
 sed -i 's/${g}.*/${a}${b}${c}${d}${e}${f}${hydrid}/g' package/lean/autocore/files/x86/autocore
