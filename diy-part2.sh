@@ -16,6 +16,9 @@ rm -rf feeds/smpackage/{base-files,dnsmasq,firewall*,fullconenat,libnftnl,nftabl
 sed -i 's/192.168.1.1/192.168.81.200/g' package/base-files/files/bin/config_generate
 sed -i 's/192.168.1.1/192.168.81.200/g' package/base-files/luci2/bin/config_generate
 
+src-git strongswan https://github.com/strongswan/strongswan.git
+
+
 # rm -rf feeds/luci/themes/luci-theme-argon
 # git clone -b https://github.com/haiibo/openwrt-packages/tree/master/luci-theme-argon.git feeds/luci/themes/luci-theme-argon
 
